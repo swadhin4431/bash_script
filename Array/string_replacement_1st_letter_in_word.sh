@@ -1,7 +1,7 @@
+
+
 ##Question
 : <<'BLOCK'
-This is a multiline block comment using a here-document.
-It can span multiple lines without having to use '#' on each line.
 
 **Sample Input**
 Namibia
