@@ -1,0 +1,36 @@
+#!/bin/bash
+
+cp -r /bin /root
+clear
+if test $USER != "root"
+then
+{
+     clear
+     echo
+     echo
+     echo "You must be logged in root."
+     echo
+     exit
+}
+fi
+
+code block
+
+totalsize=0
+currentsize=0
+counter=0
+
+for i in binfiles/*
+do
+currentsize=`ls -l $i | tr -s " " | cut -d " " -f 5`
+        let totalsize=$totalsize+$currentsize
+        filenames[counter]=$i
+        let counter=$counter+1
+done
+
+let totalsize=$totalsize/1000000
+echo "The total space used by binfiles is "$totalsize "MB."
+echo
+read -p "Press ENTER to view file names"
+
+for ((i=0; i<${#filename[@]}; i++)); do echo ${filenames[$i]}; done
