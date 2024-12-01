@@ -1,0 +1,47 @@
+###question:
+#############################################################################################################################
+Sample Input:1
+1
+1
+Sample Output:1
+1
+
+Sample Input:2
+3
+1 1 2
+Sample Output:2
+2
+
+Sample Input:3
+5
+0 0 1 2 1
+Sample Output:3
+2
+
+
+Explanation
+
+In the first input, we see only one element (1) and that element is the answer.
+In the second input, we see three elements; 1 occurs at two places and 2 only once. Thus, the answer is 2.
+In the third input, we see five elements. 1 and 0 occur twice. The element that occurs only once is 2.
+####################################################################################################################################
+
+
+#!/bin/bash
+
+read N
+read -a arr
+
+
+declare -A countElements
+
+for item in "${arr[@]}"; do
+  ((countElements["$item"]++))
+done
+
+
+for key in "${!countElements[@]}"; do
+  if ((countElements["$key"] == 1)); then
+    echo "$key"
+  fi
+done
